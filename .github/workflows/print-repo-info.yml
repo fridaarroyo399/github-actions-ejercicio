@@ -1,0 +1,18 @@
+name: Imprimir información del repositorio
+
+on: [push]
+
+jobs:
+  info:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+
+      - name: Mostrar información del repositorio
+        run: |
+          echo "Nombre del repositorio: ${{ github.repository }}"
+          echo "Branch actual: ${{ github.ref }}"
+          echo "Autor del commit: ${{ github.actor }}"
+          echo "Evento que activó este flujo: ${{ github.event_name }}"
